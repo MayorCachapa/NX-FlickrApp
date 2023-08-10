@@ -33,16 +33,15 @@ export default async function Index({
         <input defaultValue={params.get("tags") ?? undefined} type="search" name="tags" />
         <button>Search</button>
       </form>
-      <ul className='grid grid-cols-3 gap-5'>
+      <ul className='grid grid-cols-3 gap-12'>
         {data.items.map((item, index) => (
-          <li key={index} className=''>
-            <Image
+          <li key={index} className='max-w-[120px] w-full max-h-[120px] h-full'>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={item.media.m}
               alt={item.title}
-              width={120}
-              height={120}
-              className='object-fit'
-            />
+              className='object-cover h-full w-full'
+              />
           </li>
         ))}
       </ul>
