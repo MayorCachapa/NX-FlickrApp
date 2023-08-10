@@ -1,5 +1,4 @@
 import type { FeedResponse } from '@miyagami/shared-types';
-import Image from 'next/image';
 
 export default async function Index({
   searchParams,
