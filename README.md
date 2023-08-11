@@ -27,6 +27,7 @@ You can also run `nx serve <app-name>`, however `npm run dev` is a script that r
 This monorepo was generated using NX workspaces. The following commands are the ones used to generate this project:
 
 1. Generate a Next.js workspace by entering the below command and following the instructions from the CLI:
+
 `npx create-nx-workspace`
 
 - Select React --> Select Next.js with App directory
