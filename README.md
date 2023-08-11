@@ -1,4 +1,4 @@
-# Miyagami
+# FlickrApp by Alejandro Rodriguez Hernandez (Miyagami)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -7,16 +7,41 @@
 
 ## Start the app
 
-To start the development server run `nx serve miyagami`. Open your browser and navigate to http://localhost:4200/. Happy coding!
+To start the the app, first install all dependencies by entering:
 
+`npm install`
 
-## Generate code
+After doing that, you can simply run the following command:
 
-If you happen to use Nx plugins, you can leverage code generators that might come with it.
+`npm run dev`
 
-Run `nx list` to get a list of available plugins and whether they have generators. Then run `nx list <plugin-name>` to see what generators are available.
+You can also run `nx serve <app-name>`, however `npm run dev` is a script that runs both the Next server and the ExpressJS server inside of flicker-api. Please see the script below for more information:
 
-Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-code-generators).
+```json
+  "scripts": {
+    "dev": "nx run-many -t serve miyagami flickr-api"
+  },
+```
+
+## Generating the app:
+This monorepo was generated using NX workspaces. The following commands are the ones used to generate this project:
+
+1. Generate a Next.js workspace by entering the below command and following the instructions from the CLI:
+`npx create-nx-workspace`
+
+- Select React --> Select Next.js with App directory
+
+2. Generate the ExpressJS server inside the monorepo by running the below command:
+
+`nx g @nx/express:app <app-name>`
+
+3. Add TailwindCSS to the project:
+
+`nx g @nx/react:setup-tailwind --project=<app-name>`
+
+4. Finally, for simplicity purposes, a Lib file is generated. This file is only meant to hold the global types shared across the monorepo. To do so, the following command will do the trick:
+
+`npx nx g @nx/js:lib`
 
 ## Running tasks
 
