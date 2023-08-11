@@ -1,4 +1,5 @@
 import type { FeedResponse } from '@miyagami/shared-types';
+import ContentCard from './components/ContentCard';
 
 export default async function Index({
   searchParams,
@@ -28,22 +29,27 @@ export default async function Index({
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <form>
-        <input defaultValue={params.get("tags") ?? undefined} type="search" name="tags" />
-        <button>Search</button>
+      <form className='sticky relative w-full flex-between md:flex-center mt-6'>
+        <input 
+        defaultValue={params.get("tags") ?? undefined} type="search" name="tags" 
+        className='block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0'
+        />
+        <button className='rounded-full border border-slate-800 bg-transparent py-1.5 px-5 text-slate-800 transition-all hover:bg-slate-800 hover:text-slate-50 text-center text-sm font-inter flex items-center justify-center ml-2' >Search</button>
       </form>
-      <ul className='grid grid-cols-3 gap-12'>
+      <div className='grid grid-row-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12 mb-6'>
         {data.items.map((item, index) => (
-          <li key={index} className='max-w-[120px] w-full max-h-[120px] h-full'>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={item.media.m}
-              alt={item.title}
-              className='object-cover h-full w-full'
-              />
-          </li>
+          <>
+            <ContentCard
+              title={item.title}
+              link={item.link}
+              author={item.author}
+              author_id={item.author_id}
+              media={item.media}
+              tags={item.tags}
+            /> 
+          </>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
