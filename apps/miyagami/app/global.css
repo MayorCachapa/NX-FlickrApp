@@ -33,6 +33,7 @@
   opacity: 0.4;
   filter: invert(1);
 }
+
 .ImageWrapper {
   position: relative;
   width: 100%;
@@ -76,4 +77,8 @@
 
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.dropdown_link {
+  @apply text-sm text-gray-700 hover:text-gray-500 font-medium;
 }
