@@ -18,14 +18,14 @@ export default function ContentCard({
         </Link>
       </div>
       <div className="px-6 py-4">
-        <Link href={link} target="_blank" className="font-bold text-xl mb-2">
+        <Link href={link} target="_blank" className="font-bold text-xl mb-2 text-slate-700">
           {title.length > 30
             ? `${title.substring(0, 30)}...`
-            : title.length > 0
+            : title.length > 0 && title !== " "
             ? title
             : 'Untitled'}
         </Link>
-        <p className="text-gray-700 text-base text-sm mt-3">
+        <p className="text-emerald-700 text-base text-sm mt-3">
           {tags.length > 50 ? `${tags.substring(0, 50)}...` : tags}
         </p>
       </div>
@@ -35,9 +35,7 @@ export default function ContentCard({
           target="_blank"
         >
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            {author
-              .replace('nobody@flickr.com (', '')
-              .substring(1, author.length - 2)}
+            {author.replace('nobody@flickr.com ("', '').replace('")', '')}
           </span>
         </Link>
       </div>

@@ -32,6 +32,7 @@ export default async function Index({
       <form className='sticky relative w-full flex-between md:flex-center mt-6'>
         <input 
         defaultValue={params.get("tags") ?? undefined} type="search" name="tags" 
+        placeholder='Enter multiple tags by separating them with a comma'
         className='block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0'
         />
         <button className='rounded-full border border-slate-800 bg-transparent py-1.5 px-5 text-slate-800 transition-all hover:bg-slate-800 hover:text-slate-50 text-center text-sm font-inter flex items-center justify-center ml-2' >Search</button>
