@@ -1,6 +1,9 @@
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import './global.css';
+import { Titillium_Web } from 'next/font/google'
+
+const titillium = Titillium_Web({ subsets: ["latin"], weight: ['200'] })
 
 export const metadata = {
   title: 'FlickrApp by Alejandro Rodriguez',
@@ -14,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${titillium.className}`}>
         <div className='main'>
             <div className='gradient' />
         </div>
